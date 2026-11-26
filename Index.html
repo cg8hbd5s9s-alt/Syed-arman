@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Teacher 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,
+        #ffb6d9, #ff69b4, #ff1493, #ffc0cb);
+    overflow: hidden;
+}
+
+.card {
+    width: 90%;
+    max-width: 450px;
+    padding: 40px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.85);
+    border-radius: 30px;
+    box-shadow: 0 0 35px #ff1493;
+    animation: appear 1.5s ease;
+    z-index: 2;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h1 {
+    color: #ff1493;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px pink;
+}
+
+.message {
+    color: #d60070;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+.name {
+    color: #ff0080;
+    font-size: 25px;
+    margin: 15px 0;
+}
+
+button {
+    margin-top: 25px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px pink;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ff1493;
+}
+
+#surprise {
+    display: none;
+    color: #ff0080;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: appear 1s;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 25px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    margin-top: 25px;
+    color: #ff1493;
+    font-size: 14px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>💗 Best Teacher Ever 💗</h1>
+
+    <div class="name">
+        Adithya Vardan Sir 🌸
+    </div>
+
+    <p class="message">
+        Sir, You Are The Best! 🥰
+        <br><br>
+        Please Give Me Full Marks!
+        <br>
+        To Your Favourite Student 💕
+    </p>
+
+    <button onclick="showMessage()">
+        Click For A Surprise 💖
+    </button>
+
+    <div id="surprise">
+        🎉 Thank You So Much Sir! 🎉
+        <br><br>
+        With Love & Respect ❤️
+        <br>
+        Your Favourite Student
+        <br><br>
+        ✨ SYED ARMAN ✨
+    </div>
+
+    <div class="footer">
+        Made With Love By Syed Arman 💗
+    </div>
+
+</div>
+
+<script>
+
+function showMessage() {
+    document.getElementById("surprise").style.display = "block";
+
+    for (let i = 0; i < 30; i++) {
+        createHeart();
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const emojis = ["💗", "💕", "💖", "🌸", "💝", "✨"];
+
+    heart.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+// Floating hearts automatically
+setInterval(createHeart, 400);
+
+</script>
+
+</body>
+</html>
